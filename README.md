@@ -20,6 +20,6 @@ gfortran -c system_parameters.f95 mtmod.f95 ssa_simul7.f95
 gfortran -o executable_name.out main_simul7.f95 system_parameters.o mtmod.o ssa_simul7.o
 ./executable_name.out
 ```
-**WARNING** Beware with the number of simulations performed (*Nsim*) as a low number would lead to bad results due to the lack of statistically significant sample, whereas a big number produces intensive executions that could last for a few hours.
+**WARNING** Beware with the number of simulations performed (`Nsimul`) as a low number would lead to bad results due to the lack of statistically significant sample, whereas a big number produces intensive executions that could last for a few hours.
 
 To know more about the scientific background and application of this work, check [this paper](http://diposit.ub.edu/dspace/handle/2445/141704).
