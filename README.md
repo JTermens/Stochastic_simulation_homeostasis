@@ -5,7 +5,7 @@
 
 This repository contains the main algoithms to simulate the collective behaviour of a 1-dim tissue of stem cells with periodic boundary conditions. Each cell choses between proliferating or differentiating (leaving the tissue) according a different model (VM,CBD or density) so that homeostasis is achieved and maintained. Each simulation begins with a single labeled cell and tracks its descendants until the clone dies, reaches the tissue's size or the last measure time is reached. The dynamics are simulated by a simple model of linear growth/migration in which each cell grows util the adult size (l0) and migrates to be at the equilibrium distance with its neighbouring cells. Each algorith simulates a different cell fate model of the following:
 
-* **Critical birth-death model (CBD):** each cell choses between differentiation or proliferation stochastically with $prob=1/2$ for both. Lifetimes are generated stochastically as *\~ EXP(1/t_cell)*.
+* **Critical birth-death model (CBD):** each cell choses between differentiation or proliferation stochastically with *prob=1/2* for both. Lifetimes are generated stochastically as *\~ EXP(1/t_cell)*.
 
 * **Voter Model (VM):** each cell stochastically choses one side and evolves with the opposite fate as that side's neighbour cell. Lifetimes are generated stochastically as *\~ EXP(1/t_cell)*.
 
