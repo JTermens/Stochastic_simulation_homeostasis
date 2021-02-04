@@ -49,7 +49,7 @@ contains
 !        computed, whereas when GrMrg=0, they are not. L is the maximum distance at which cells
 !        measure density, SEED is the seed of random numbers, time_measure is an array of size
 !        Nmeasure+1 with the times at which measures are taken, Ncell_rec, Nsurv_rec and frac_rec
-!        are output arrays with the simulation's results. k_measures is a real output that represents
+!        are output arrays with the simulation's results. k_measure is a real output that represents
 !        the number of measures and err is an error flag.
 !
 ! * Warning, the recording of complementary measures by setting CompMeas = .true. can output large files.
@@ -152,7 +152,7 @@ contains
       cell_real(index_cell,3)=l0*0.5d0+dble(index_cell-1)*(l0+delta_ini)
     enddo
 
-    index_cell=250
+    index_cell=int(real(Nini)/2.d0)
     cell_logic(index_cell,1)=.true.
 
     call Ncell_close(L,index_cell,cell_real(:,3),Lsys,Nclose) !compute numerical cell density
@@ -526,6 +526,7 @@ contains
             err=.false.
           endif
 
+
           call cpu_time(TIME_TOTAL)
           TIME_TOTAL=TIME_TOTAL-TIME0
 
@@ -535,6 +536,7 @@ contains
             print*,"  TIME PROLIF=",TIME_PROLIF," frac=",(TIME_PROLIF/TIME_TOTAL)*100.0,"%"
             print*,"  TIME DIFF=",TIME_DIFF," frac=",(TIME_DIFF/TIME_TOTAL)*100.0,"%"
             print*,"  TIME REC=",TIME_RECORD," frac=",(TIME_RECORD/TIME_TOTAL)*100.0,"%"
+            print*,"  # MEASURES=",k_measure
             print*," "
           endif
           if(CompMeas.eqv..true.) then
@@ -565,6 +567,7 @@ contains
         print*,"  TIME PROLIF=",TIME_PROLIF," frac=",(TIME_PROLIF/TIME_TOTAL)*100.0,"%"
         print*,"  TIME DIFF=",TIME_DIFF," frac=",(TIME_DIFF/TIME_TOTAL)*100.0,"%"
         print*,"  TIME REC=",TIME_RECORD," frac=",(TIME_RECORD/TIME_TOTAL)*100.0,"%"
+        print*,"  # MEASURES=",k_measure
         print*," "
       endif
       if(CompMeas.eqv..true.) then
